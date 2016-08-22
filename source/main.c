@@ -18,27 +18,6 @@
 #include <gtk/gtk.h>
 #include "ui/ui_main.h"
 
-/* (evolution methods)
-// 00 - none
-// 01 - friendship
-// 02 - friendship during the day
-// 03 - friendship during the night
-// 04 - level
-// 05 - trade
-// 06 - trade with item
-// 07 - stone
-// 08 - def < atk
-// 09 - def = atk
-// 10 - def > atk
-
-// NINJASK BULLSHIT AHEAD
-// 11 - personality value
-// 12 - personality value
-// 13 - may spawn additional
-// 14 - additionally spawned
-
-// 15 - beauty */
-
 const char* types[18] = {
 	"Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel",
 	"???", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark"
@@ -50,37 +29,6 @@ s_move moveData[MOVE_COUNT];
 
 #define nameLength 11
 
-/*static void load(int id)
-{
-	int offset = pokemonNamesOffset + nameLength * id;
-	memset(pokemonData[id].name, 0, 11);
-
-	fget(romfile, offset, 10, pokemonData[id].name);
-	hexToString(pokemonData[id].name, 10, pokemonData[id].name);
-
-	int len = 28;
-	byte* buf[len];
-	fget(romfile, pokemonStatsOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].stats, buf, len);
-
-	len = 40;
-	fget(romfile, evolutionDataOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].evolutionData, buf, len);
-
-	len = 4;
-	fget(romfile, pointerTableOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].lookup, buf, len);
-
-	len = 8;
-	fget(romfile, moveCompatibilityOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].moves, buf, len);
-}*/
-
-int getEv(int evs, stat s)
-{
-	return (evs & (3 << (s * 2))) >> (s * 2);
-}
-
 void printPokemon(char* buf, char* fmt, pokemon *p)
 {
 	stats* s = &p->stats;
@@ -90,12 +38,12 @@ void printPokemon(char* buf, char* fmt, pokemon *p)
 		types[s->typeA], types[s->typeB], 
 		s->catchRate,
 		s->baseExp,
-		getEv(s->evs, hp),
-		getEv(s->evs, atk),
-		getEv(s->evs, def),
-		getEv(s->evs, spe),
-		getEv(s->evs, spa),
-		getEv(s->evs, spd),
+		pokemon_getEv(s->evs, STAT_HP),
+		pokemon_getEv(s->evs, STAT_ATK),
+		pokemon_getEv(s->evs, STAT_DEF),
+		pokemon_getEv(s->evs, STAT_SPE),
+		pokemon_getEv(s->evs, STAT_SPA),
+		pokemon_getEv(s->evs, STAT_SPD),
 		s->itemA,
 		s->itemB,
 		s->genderRatio,
@@ -245,6 +193,8 @@ int main(int argc, char** argv)
 		printf("couldn't find clone.gba\n");
 		return 1;
 	}
+
+	pokemon_load_all();
 
 	UI_Main(argc, argv);
 

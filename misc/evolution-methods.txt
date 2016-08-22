@@ -1,0 +1,20 @@
+(evolution methods)
+// 00 - none
+// 01 - friendship
+// 02 - friendship during the day
+// 03 - friendship during the night
+// 04 - level
+// 05 - trade
+// 06 - trade with item
+// 07 - stone
+// 08 - def < atk
+// 09 - def = atk
+// 10 - def > atk
+
+// NINJASK BULLSHIT AHEAD
+// 11 - personality value
+// 12 - personality value
+// 13 - may spawn additional
+// 14 - additionally spawned
+
+// 15 - beauty

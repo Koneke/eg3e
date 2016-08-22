@@ -1,10 +1,44 @@
-#include <gtk/gtk.h>
+#include "ui/ui_global.h"
+#include "model/pokemon.h"
 
-#define GET(x, y) GTK_WIDGET(gtk_builder_get_object(GTK_BUILDER(x), #y))
+static GtkWidget* base_hp;
+static GtkWidget* base_atk;
+static GtkWidget* base_def;
+static GtkWidget* base_spa;
+static GtkWidget* base_spd;
+static GtkWidget* base_spe;
+static GtkWidget* ev_hp;
+static GtkWidget* ev_atk;
+static GtkWidget* ev_def;
+static GtkWidget* ev_spa;
+static GtkWidget* ev_spd;
+static GtkWidget* ev_spe;
 
-static void list_onSelection(GtkWidget* widget, gpointer data)
+static void updateSpinners()
 {
-	g_print("test\n");
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_hp),  0.0 + pokemon_data[pokemon_selected].stats.hp);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_atk), 0.0 + pokemon_data[pokemon_selected].stats.atk);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_def), 0.0 + pokemon_data[pokemon_selected].stats.def);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_spa), 0.0 + pokemon_data[pokemon_selected].stats.spa);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_spd), 0.0 + pokemon_data[pokemon_selected].stats.spd);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_spe), 0.0 + pokemon_data[pokemon_selected].stats.spe);
+
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(base_spe), 0.0 + pokemon_data[pokemon_selected].stats.spe);
+}
+
+static void list_onSelection(GtkTreeSelection* selection, gpointer data)
+{
+	GtkTreeIter iter;
+	GtkTreeModel* model;
+	gint number;
+
+	if (gtk_tree_selection_get_selected(selection, &model, &iter))
+	{
+		gtk_tree_model_get(model, &iter, 0, &number, -1);
+		pokemon_selected = number;
+		updateSpinners();
+		g_print("selected number %i\n", number);
+	}
 }
 
 static GtkListStore* list;
@@ -41,35 +75,47 @@ static GtkTreeModel* createModel()
 	return model;
 }
 
-static void setupSpinners(GtkBuilder* builder)
+static void setupSpinners()
 {
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-hp)),  gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-atk)), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-def)), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-spa)), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-spd)), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-base-spe)), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-hp)),  gtk_adjustment_new(0, 0, 4, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-atk)), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-def)), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-spa)), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-spd)), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
-	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(GET(builder, pkm-stats-ev-spe)), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	base_hp =  GET(builder, pkm-stats-base-hp);
+	base_atk = GET(builder, pkm-stats-base-atk);
+	base_def = GET(builder, pkm-stats-base-def);
+	base_spa = GET(builder, pkm-stats-base-spa);
+	base_spd = GET(builder, pkm-stats-base-spd);
+	base_spe = GET(builder, pkm-stats-base-spe);
+	ev_hp =  GET(builder, pkm-stats-ev-hp);
+	ev_atk = GET(builder, pkm-stats-ev-atk);
+	ev_def = GET(builder, pkm-stats-ev-def);
+	ev_spa = GET(builder, pkm-stats-ev-spa);
+	ev_spd = GET(builder, pkm-stats-ev-spd);
+	ev_spe = GET(builder, pkm-stats-ev-spe);
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_hp),  gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_atk), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_def), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_spa), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_spd), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(base_spe), gtk_adjustment_new(0, 0, 256, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_hp),  gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_atk), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_def), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_spa), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_spd), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
+	gtk_spin_button_set_adjustment(GTK_SPIN_BUTTON(ev_spe), gtk_adjustment_new(0, 0, 4, 1, 1, 1));
 }
 
-void UI_TabPkm_Setup(GtkBuilder* builder)
+void UI_TabPkm_Setup()
 {
 	GtkWidget* hbox = GET(builder, pkm-hbox);
 
 	GtkWidget* treeview = createTreeView();
 	GtkTreeModel* model = createModel();
 
-	AddRow(1, "Fletchinder");
+	AddRow(1, "Bulbasaur");
 
 	gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), model);
 	g_object_unref(model);
 
-	setupSpinners(builder);
+	setupSpinners();
 
 	gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(treeview), FALSE, FALSE, 0);
 }

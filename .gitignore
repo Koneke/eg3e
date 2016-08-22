@@ -3,3 +3,4 @@ build/*
 *.GBA
 *.exe
 *.psd
+*.swp

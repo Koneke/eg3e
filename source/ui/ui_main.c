@@ -1,6 +1,6 @@
 #include <string.h>
-#include <gtk/gtk.h>
 
+#include "ui/ui_global.h"
 #include "ui/ui_menubar.h"
 #include "ui/ui_tabpkm.h"
 
@@ -29,18 +29,18 @@ static void LoadCss()
 void UI_Main(int argc, char** argv)
 {
 	gtk_init(&argc, &argv);
-	GtkBuilder* builder = gtk_builder_new_from_file("./ui/out.glade");
+	builder = gtk_builder_new_from_file("./ui/out.glade");
 
-	GtkWidget* window = GTK_WIDGET(gtk_builder_get_object(builder, "window-main"));
+	GtkWidget* window = GET(builder, window-main);
 	gtk_window_set_icon_from_file(GTK_WINDOW(window), "icon.png", NULL);
 	gtk_builder_connect_signals(builder, NULL);
 
-	UI_Menubar_Setup(builder);
-	UI_TabPkm_Setup(builder);
+	UI_Menubar_Setup();
+	UI_TabPkm_Setup();
 
 	LoadCss();
 
-	g_object_unref(builder);
 	gtk_widget_show_all(window);
 	gtk_main();
+	g_object_unref(builder);
 }

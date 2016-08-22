@@ -1,6 +1,17 @@
+#pragma once
 #include "typedefs.h"
 
 #define PKMN_COUNT 412
+
+typedef enum {
+	STAT_HP,
+	STAT_ATK,
+	STAT_DEF,
+	STAT_SPE,
+	STAT_SPA,
+	STAT_SPD,
+	STAT_MAX
+} stat;
 
 typedef struct {
 /* 01 */	uint8_t hp;
@@ -64,6 +75,9 @@ typedef struct {
 	uint64_t moves;
 } pokemon;
 
-pokemon pokemonData[PKMN_COUNT];
+int pokemon_selected;
+pokemon pokemon_data[PKMN_COUNT];
 
-void load(int id);
+void pokemon_load_all();
+void pokemon_load(int id);
+int pokemon_getEv(int evs, stat s);

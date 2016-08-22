@@ -12,28 +12,45 @@
 
 #define nameLength 11
 
-void load(int id)
+void pokemon_load_all()
 {
-	int offset = pokemonNamesOffset + nameLength * id;
-	memset(pokemonData[id].name, 0, 11);
+	pokemon_selected = 1; // bulbasaur, not ???
 
-	fget(romfile, offset, 10, pokemonData[id].name);
-	hexToString(pokemonData[id].name, 10, pokemonData[id].name);
+	for (int i = 0; i < PKMN_COUNT; i++)
+	{
+		pokemon_load(i);
+	}
+}
 
-	int len = 28;
+void pokemon_load(int id)
+{
+	int len = 11;
+	int offset = pokemonNamesOffset + len * id;
+	memset(pokemon_data[id].name, 0, 11);
+
+	fget(romfile, offset, 10, pokemon_data[id].name);
+	hexToString(pokemon_data[id].name, 10, pokemon_data[id].name);
+
+	//int len = 28;
+	len = 28;
 	byte* buf[len];
 	fget(romfile, pokemonStatsOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].stats, buf, len);
+	memcpy(&pokemon_data[id].stats, buf, len);
 
 	len = 40;
 	fget(romfile, evolutionDataOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].evolutionData, buf, len);
+	memcpy(&pokemon_data[id].evolutionData, buf, len);
 
 	len = 4;
 	fget(romfile, pointerTableOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].lookup, buf, len);
+	memcpy(&pokemon_data[id].lookup, buf, len);
 
 	len = 8;
 	fget(romfile, moveCompatibilityOffset + len * id, len, buf);
-	memcpy(&pokemonData[id].moves, buf, len);
+	memcpy(&pokemon_data[id].moves, buf, len);
+}
+
+int pokemon_getEv(int evs, stat s)
+{
+	return (evs & (3 << (s * 2))) >> (s * 2);
 }
