@@ -1,0 +1,15 @@
+@define-color selection-color blue;
+
+/*GtkWindow { background: #eeeeee; }*/
+
+#tabpkm-label { background: red; }
+tabpkm_label { background: red; }
+.tabpkm_label { background: red; }
+
+/*GtkTreeView {
+	background: white;
+}
+
+GtkTreeView row:selected {
+	background: @selection-color;
+}*/

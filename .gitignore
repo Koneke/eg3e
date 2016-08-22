@@ -1,0 +1,5 @@
+build/*
+*.gba
+*.GBA
+*.exe
+*.psd

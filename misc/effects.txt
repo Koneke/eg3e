@@ -1,0 +1,179 @@
+01 Sleep
+02 Poison
+03 Lifesteal
+04 Burn
+05 Freeze
+06 Paralyse
+07 Suicide
+09 Dream eater
+0a Attack +1
+0b Defense +1
+0d Growth (SpA +1, Attack +2 & SpA +2 in harsh sunlight)
+10 Eva +1
+11 Always hits
+12 Attack -1
+13 Defense -1
+14 Speed -2
+17 Target eva -1
+19 Adjacent opponents eva -2
+1a Reset all status changes
+1b Bide
+1c 2-3 turns (thrash, outrage)
+1d Multi shot
+1e Change type to one of user's moves
+1f Flinch
+20 Recover
+21 Bad poison
+22 Pay day
+23 Light screen
+26 Tri attack
+27 Rest
+29 Ohko
+2a Multiturn trap (firespin, clamp, bind)
+2b Higher critchance
+2c 2 hit
+2d Jump kick
+2e Mist
+2f Focus energy
+30 Recoil damage
+31 Confusion
+32 Swords dance
+33 Defense +2
+34 Speed +2
+36 SpD +2
+3b Defense -2
+3c Speed -2
+41 Reflect
+42 Adjacent opponents poison
+43 Paralyse (duplicate?)
+44 Attack -1
+45 Defense -1
+46 Adjacent opponents speed -1
+48 SpD -1
+4c Confusion
+4d Double strike, poison
+50 Recharge next turn
+51 Rage
+52 Mimic
+53 Metronome
+54 Leech seed
+55 Splash
+56 Disable
+57 Damage equal to user's level
+58 Typeless damage between 0.5x and 1.5x user's level
+59 Counter
+5a Encore
+5b Pain split
+5c Snore
+5d Change type to something resisting/immune to last type hit by
+5e Guaranteed hit next time (except protect, but even vs fly/dig)
+5f Sketch
+61 Sleep talk
+62 Destiny bond
+63 More damage for low hp
+64 Remove 2-5 pp for last used move
+65 Leave target at 1hp (minimum) (false swipe)
+66 Heal bell
+67 Quick attack
+68 Triple kick
+69 Thief
+6a No switching/running (mean look)
+6b Nightmare
+6c +1 eva, double damage from stomp (minimize)
+6d Curse
+6f Protect
+70 Spikes
+71 Negates eva above users accuracy, ghost can hit fight/normal (foresight)
+72 Perish Song
+73 Sandstorm
+74 Endure
+75 Rollout
+76 Swagger
+77 Power doubles after every turn (fury cutter)
+78 Attract
+79 Return
+7a Present
+7b Frustration
+7c Non-volatile protection, confusion protection (5 turns) (Safeguard)
+7d Burnchance, thaw if frozen
+7e Magnitude
+7f Baton Pass
+80 Pursuir
+81 Rapid Spin
+82 Sonic Boom (20 damage, regardless)
+84 Heal by weather (morning sun)
+85 Heal by weather (synthesis)
+86 Heal by weather (moonlight)
+87 Hidden Power
+88 Rain Dance
+89 Sunny Day
+8a Defense +1 (Steel Wing)
+8b Attack +1 (Metal Claw)
+8c Chance of Atk Def SpA SpD Spe +1 (Ancient Power)
+8e Belly Drum
+8f Copy foe changes
+90 Mirror Coat
+91 Skull Bash
+92 Flinch chance, hits for double damage vs Fly-d targets
+93 Earthquake (hits dig)
+94 Damage two turns later (Doom Desire/Future Sight)
+95 Hits Fly-d/Bounce-d targets for double damage (Gust)
+96 Flinch chance if attacking before target (Astonish)
+97 Solarbeam
+98 Guaranteed hit in rain, less accuracy in sunlight, hits Fly-d/Bounce-d for double (Thunder)
+99 Teleport
+9a Beat Up
+9b Bounce/Dig/Dive/Fly
+9c Defense +1, doubles Rollout/Ice Ball power
+9d Heal half
+9e Guaranteed flinch if used on first turn out (Fake Out)
+9f Damage for 2-5 turns, wakes up everyone, disables sleep (Uproar)
+a0 Stockpile
+a1 Spit Up
+a2 Swallow
+a4 Hail
+a5 Disallow from using same move twice in a row (Torment)
+a6 Target SpA +1 and confusion
+a7 Burn (no effect on fire)
+a8 Faints user, target SpA SpD -2
+a9 Doubles base power if user burned, paralyzed or poisoned (Facade)
+aa User focuses at beginning of turn, then attacks at end only if not attacked before (Focus Punch)
+ab Double power vs paralysed target, cures paralysis.
+ac Drags targetting from opposing pokemon to self (away from allies) (Follow Me)
+ad Different attack depending on area executed in (Nature Power)
+ae Doubles next electric-type attack (Charge)
+af Forces target to only use damaging moves (Taunt)
+b0 Boost baser power of target's next attack (Helping Hand)
+b1 Swap held item with target (Trick)
+b2 Swap ability with target (Role Play)
+b3 Heal at end of next turn (Wish)
+b4 Use a random move from party (Assist)
+b5 Ingrain
+b6 User's Attack Defense -1
+b7 Counters any move inflicting status conditions (Magic Coat)
+b8 Recycle
+b9 Doubles power if taken damage same turn (Revenge)
+ba Break Light Screen/Reflect before dealing damage (Brick Break)
+bb Yawn
+bc Knock Off
+bd Lower target's HP to user's current HP (Endeavor)
+be Scale power with user's current HP (Eruption)
+bf Swap ability with target (Skill Swap)
+c4 Low Kick
+c5 Secret Power
+c6 33% recoil (Double Edge)
+c7 Confuse all targets adjacent to user (Teeter Dance)
+c8 Increased crit chance and burn (Blaze Kick)
+c9 Lower power of electricity (Mud Sport)
+ca 30% chance of bad poison
+cb Weather Ball
+cc User SpA -2 (Overheat)
+cd Target Attack Defense -1 (Tickle)
+ce User Defense SpD +1
+cf Can hit during Fly Bounce Sky Drop (Sky Uppercut)
+d0 User Attack Defense +1 (Bulk Up)
+d1 Increased crit chance and 10% poison (todo: check how effect accuracy works) (Poison Tail)
+d2 Lower power of fire (Water Sport)
+d3 User SpA SpD +1 (Calm Mind)
+d4 User Attack Speed +1
+d5 Camouflage
