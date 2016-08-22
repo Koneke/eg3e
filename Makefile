@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -c
 
 TARGET = $(notdir $(CURDIR))
-SOURCES := source source/ui source/model
+SOURCES := source source/model source/ui source/ui/pkm
 INCLUDES := include
 
 CFILES = $(foreach dir,$(SOURCES),$(wildcard $(dir)/*.c))

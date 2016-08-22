@@ -1,5 +1,6 @@
 <interface>
   
+  
   <object class="GtkWindow" id="window-main">
     <property name="name">window-main</property><property name="can_focus">False</property>
     <property name="title" translatable="yes">Essi's Gen 3 Editor</property>
@@ -43,6 +44,25 @@
                         <property name="name">_pkm-stats-mainvbox</property><property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
+                          <object class="GtkEntry" id="pkm-name">
+                            <property name="name">pkm-name</property><property name="width_request">100</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="max_length">12</property>
+                            <property name="invisible_char">&#9679;</property>
+                            <property name="width_chars">12</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
                           <object class="GtkHBox" id="_pkm-stats-mainvbox-0">
                             <property name="name">_pkm-stats-mainvbox-0</property><property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -50,6 +70,7 @@
                               <object class="GtkVBox" id="_pkm-stats-mainvbox-0-stats">
                                 <property name="name">_pkm-stats-mainvbox-0-stats</property><property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="homogeneous">True</property>
                                 <child>
                                   <object class="GtkFrame" id="BaseStats">
                                     <property name="name">BaseStats</property><property name="height_request">50</property>
@@ -70,6 +91,11 @@
                                                 <property name="name">pkm-stats-base-hp</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
+                                                <property name="primary_icon_activatable">False</property>
+                                                <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -82,8 +108,11 @@
                                                 <property name="name">pkm-stats-base-atk</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -96,8 +125,11 @@
                                                 <property name="name">pkm-stats-base-def</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -110,8 +142,11 @@
                                                 <property name="name">pkm-stats-base-spa</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -124,8 +159,11 @@
                                                 <property name="name">pkm-stats-base-spd</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -138,8 +176,11 @@
                                                 <property name="name">pkm-stats-base-spe</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -186,8 +227,11 @@
                                                 <property name="name">pkm-stats-ev-hp</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -200,8 +244,11 @@
                                                 <property name="name">pkm-stats-ev-atk</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -214,8 +261,11 @@
                                                 <property name="name">pkm-stats-ev-def</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -228,8 +278,11 @@
                                                 <property name="name">pkm-stats-ev-spa</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -242,8 +295,11 @@
                                                 <property name="name">pkm-stats-ev-spd</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -256,8 +312,11 @@
                                                 <property name="name">pkm-stats-ev-spe</property><property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">&#9679;</property>
+                                                <property name="invisible_char_set">True</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
+                                                <property name="primary_icon_sensitive">True</property>
+                                                <property name="secondary_icon_sensitive">True</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
@@ -309,8 +368,8 @@
                                         <property name="can_focus">False</property>
                                         <property name="homogeneous">True</property>
                                         <child>
-                                          <object class="GtkComboBox" id="combobox1">
-                                            <property name="name">combobox1</property><property name="visible">True</property>
+                                          <object class="GtkComboBoxText" id="pkm-stats-typeA">
+                                            <property name="name">pkm-stats-typeA</property><property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
                                           <packing>
@@ -320,8 +379,8 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="combobox2">
-                                            <property name="name">combobox2</property><property name="visible">True</property>
+                                          <object class="GtkComboBoxText" id="pkm-stats-typeB">
+                                            <property name="name">pkm-stats-typeB</property><property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
                                           <packing>
@@ -367,8 +426,8 @@
                                         <property name="can_focus">False</property>
                                         <property name="homogeneous">True</property>
                                         <child>
-                                          <object class="GtkComboBox" id="combobox3">
-                                            <property name="name">combobox3</property><property name="visible">True</property>
+                                          <object class="GtkComboBoxText" id="pkm-stats-abilityA">
+                                            <property name="name">pkm-stats-abilityA</property><property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
                                           <packing>
@@ -378,8 +437,8 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="combobox4">
-                                            <property name="name">combobox4</property><property name="visible">True</property>
+                                          <object class="GtkComboBoxText" id="pkm-stats-abilityB">
+                                            <property name="name">pkm-stats-abilityB</property><property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
                                           <packing>
@@ -411,7 +470,7 @@
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
-                            <property name="position">0</property>
+                            <property name="position">1</property>
                           </packing>
                         </child>
                         <child>
@@ -431,7 +490,7 @@
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
-                            <property name="position">1</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                       </object>

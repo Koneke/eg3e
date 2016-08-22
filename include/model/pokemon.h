@@ -3,34 +3,15 @@
 
 #define PKMN_COUNT 412
 
-typedef enum {
-	STAT_HP,
-	STAT_ATK,
-	STAT_DEF,
-	STAT_SPE,
-	STAT_SPA,
-	STAT_SPD,
-	STAT_MAX
-} stat;
+typedef enum { STAT_HP, STAT_ATK, STAT_DEF, STAT_SPE, STAT_SPA, STAT_SPD, STAT_MAX } stat;
 
 typedef struct {
-/* 01 */	uint8_t hp;
-/* 02 */	uint8_t atk;
-/* 03 */	uint8_t def;
-/* 04 */	uint8_t spe;
-/* 05 */	uint8_t spa;
-/* 06 */	uint8_t spd;
+/* 01 */	uint8_t base[6];
 /* 07 */	uint8_t typeA;
 /* 08 */	uint8_t typeB;
 /* 09 */	uint8_t catchRate;
 /* 10 */	uint8_t baseExp;
-			uint16_t evs;
-/* 11 */		// bits 0-2: hp
-/* 12 */		// bits 2-4: atk
-/* 13 */		// bits 4-6: def
-/* 14 */		// bits 6-8: spe
-/* 15 */		// bits 8-10: spa
-/* 16 */		// bits 10-12: spe
+/* 11 */	uint16_t evs; // 2 bits per stat
 /* 17 */	uint16_t itemA;
 /* 18 */	uint16_t itemB;
 /* 19 */	uint8_t genderRatio;
@@ -57,13 +38,11 @@ typedef struct {
 	uint16_t method;
 	uint16_t parameter;
 	uint16_t target;
-	//
 	uint16_t pad;
 } evolutionDataSubstructure;
 
 typedef struct {
 	evolutionDataSubstructure evolutions[5];
-	//
 	uint32_t padding;
 } evolutionData;
 
