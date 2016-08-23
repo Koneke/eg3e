@@ -11,7 +11,9 @@ INCLUDE = $(foreach dir,$(INCLUDES),-I$(dir))
 .PHONY: ui
 
 all:
-	tools/process_glade.py ui/ui.glade ui/out.glade
+	tools/process_glade.py ui/ui.glade ui/temp.glade
+	xmllint ui/temp.glade --format --output ui/out.glade
+	rm ui/temp.glade
 	$(CC) -std=c99 -o ./$(TARGET).exe $(CFILES) $(INCLUDE) `pkg-config --cflags --libs gtk+-3.0`
 
 ui:

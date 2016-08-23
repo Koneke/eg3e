@@ -1,8 +1,9 @@
 #include <string.h>
 
 #include "ui/ui_global.h"
+
+#include "ui/pkm/pkm.h"
 #include "ui/ui_menubar.h"
-#include "ui/ui_tabpkm.h"
 
 static void LoadCss()
 {
@@ -36,7 +37,7 @@ void UI_Main(int argc, char** argv)
 	gtk_builder_connect_signals(builder, NULL);
 
 	UI_Menubar_Setup();
-	UI_TabPkm_Setup();
+	pkm_setup();
 
 	LoadCss();
 
